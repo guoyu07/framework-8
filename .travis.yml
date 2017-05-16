@@ -55,7 +55,7 @@ matrix:
 
 env:
   global:
-    - CPHALCON_FOLDER=cphalcon
+    - CPHALCON_FOLDER=${TRAVIS_BUILD_DIR}
     - SLAYER_FOLDER=slayer-dist
 
     # built-in web
