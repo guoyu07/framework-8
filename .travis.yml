@@ -87,6 +87,7 @@ before_install:
 
 install:
   - bash ~/${TRAVIS_BUILD_DIR}/tests/_ci/install_prereqs_$PHP_MAJOR.sh
+  - ${TRAVIS_BUILD_DIR}
   - bash ~/${TRAVIS_BUILD_DIR}/tests/_ci/install_zephir_parser.sh
   - bash ~/${TRAVIS_BUILD_DIR}/tests/_ci/install_zephir.sh
   - '( zephir fullclean && zephir generate $ZEND_BACKEND )'
