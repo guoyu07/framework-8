@@ -1,0 +1,16 @@
+import { FetchRequest, FetchResponse, IMiddleware } from "cyberhck-test";
+export default class Json implements IMiddleware<FetchRequest, Promise<FetchResponse<any>>> {
+    process(options: FetchRequest, next?: (nextOptions: FetchRequest) => Promise<FetchResponse<any>>): any {
+        options.headers = {...options.headers, 'Accept': 'application/json', 'Content-Type': 'application/json'};
+        const res = next(options);
+        return res.then(res => {
+            if(res.ok) {
+                return res.json();
+            } else {
+                return res.json().then(res => {
+                    return Promise.reject(res);
+                });
+            }
+        });
+    }
+}

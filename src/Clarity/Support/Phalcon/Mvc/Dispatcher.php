@@ -26,4 +26,8 @@ class Dispatcher extends BaseDispatcher
     {
         return $this->_handlerSuffix;
     }
+    protected function _dispatch()
+    {
+        parent::_dispatch();
+    }
 }

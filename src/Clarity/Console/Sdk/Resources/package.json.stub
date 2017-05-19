@@ -1,0 +1,17 @@
+{
+  "name": "{NAME}",
+  "main": "./js/Api.js",
+  "typings": "./js/Api",
+  "version": "{API_VERSION}",
+  "dependencies": {
+    "typescript": "^2.2.2",
+    "cyberhck-test": "*"
+  },
+  "devDependencies": {
+    "@types/es6-shim": "*",
+    "es6-shim": "*"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}

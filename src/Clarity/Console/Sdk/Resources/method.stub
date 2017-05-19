@@ -1,0 +1,4 @@
+    public {ACTION_NAME}({PARAMS}): Promise<{RESPONSE_TYPE}>
+    {
+        return this.client.process({url: `{URL}`, method: '{METHOD}' {BODY}} as FetchRequest);
+    }

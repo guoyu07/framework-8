@@ -1,0 +1,31 @@
+import {Client, FetchRequest} from "cyberhck-test";
+import Json from "./Middlewares/Json";
+export class BaseApi {
+    protected client: Client;
+
+    constructor(protected base_url: string = "{BASE_URL}") {
+        this.client = new Client({baseUrl: base_url});
+        this.client.addMiddleware(new Json());
+    }
+
+    protected get(url: string) {
+        return this.client.process({url} as FetchRequest);
+    }
+
+    protected post(url: string, body) {
+        return this.client.process({url, body: JSON.stringify(body), method: 'POST'} as FetchRequest)
+    }
+
+    protected patch(url: string, body) {
+        return this.client.process({url, body: JSON.stringify(body), method: 'PATCH'} as FetchRequest)
+    }
+
+    protected put(url: string, body) {
+        return this.client.process({url, body: JSON.stringify(body), method: 'PUT'} as FetchRequest)
+    }
+
+    protected remove(url: string) {
+        return this.client.process({url, method: 'DELETE'} as FetchRequest)
+    }
+
+}
